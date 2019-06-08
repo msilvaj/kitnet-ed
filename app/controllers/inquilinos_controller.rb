@@ -54,9 +54,7 @@ class InquilinosController < ApplicationController
   # DELETE /inquilinos/1
   # DELETE /inquilinos/1.json
   def destroy
-    
     @inquilino.destroy
-
     respond_to do |format|
       format.html { redirect_to inquilinos_url, notice: 'Inquilino was successfully destroyed.' }
       format.json { head :no_content }
