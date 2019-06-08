@@ -1,0 +1,67 @@
+<%= form_with(model: inquilino, local: true) do |form| %>
+  <% if inquilino.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(inquilino.errors.count, "error") %> prohibited this inquilino from being saved:</h2>
+
+      <ul>
+      <% inquilino.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cpf %>
+    <%= form.text_field :cpf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rg %>
+    <%= form.text_field :rg %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefone %>
+    <%= form.text_field :telefone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ap %>
+    <%= form.text_field :ap %>
+  </div>
+
+  <div class="field">
+    <%= form.label :codigoEletrobras %>
+    <%= form.text_field :codigoEletrobras %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dataInicio %>
+    <%= form.date_select :dataInicio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dataFim %>
+    <%= form.date_select :dataFim %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dataVencimento %>
+    <%= form.date_select :dataVencimento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pago %>
+    <%= form.check_box :pago %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

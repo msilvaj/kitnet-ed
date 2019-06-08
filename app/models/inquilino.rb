@@ -1,0 +1,2 @@
+class Inquilino < ApplicationRecord
+end

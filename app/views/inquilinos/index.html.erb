@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Inquilinos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cpf</th>
+      <th>Rg</th>
+      <th>Telefone</th>
+      <th>Ap</th>
+      <th>Codigoeletrobras</th>
+      <th>Datainicio</th>
+      <th>Datafim</th>
+      <th>Datavencimento</th>
+      <th>Pago</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inquilinos.each do |inquilino| %>
+      <tr>
+        <td><%= inquilino.nome %></td>
+        <td><%= inquilino.cpf %></td>
+        <td><%= inquilino.rg %></td>
+        <td><%= inquilino.telefone %></td>
+        <td><%= inquilino.ap %></td>
+        <td><%= inquilino.codigoEletrobras %></td>
+        <td><%= inquilino.dataInicio %></td>
+        <td><%= inquilino.dataFim %></td>
+        <td><%= inquilino.dataVencimento %></td>
+        <td><%= inquilino.pago %></td>
+        <td><%= link_to 'Show', inquilino %></td>
+        <td><%= link_to 'Edit', edit_inquilino_path(inquilino) %></td>
+        <td><%= link_to 'Destroy', inquilino, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inquilino', new_inquilino_path %>

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @inquilino.nome %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @inquilino.cpf %>
+</p>
+
+<p>
+  <strong>Rg:</strong>
+  <%= @inquilino.rg %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @inquilino.telefone %>
+</p>
+
+<p>
+  <strong>Ap:</strong>
+  <%= @inquilino.ap %>
+</p>
+
+<p>
+  <strong>Codigoeletrobras:</strong>
+  <%= @inquilino.codigoEletrobras %>
+</p>
+
+<p>
+  <strong>Datainicio:</strong>
+  <%= @inquilino.dataInicio %>
+</p>
+
+<p>
+  <strong>Datafim:</strong>
+  <%= @inquilino.dataFim %>
+</p>
+
+<p>
+  <strong>Datavencimento:</strong>
+  <%= @inquilino.dataVencimento %>
+</p>
+
+<p>
+  <strong>Pago:</strong>
+  <%= @inquilino.pago %>
+</p>
+
+<%= link_to 'Edit', edit_inquilino_path(@inquilino) %> |
+<%= link_to 'Back', inquilinos_path %>
