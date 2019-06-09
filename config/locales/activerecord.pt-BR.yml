@@ -1,0 +1,8 @@
+pt-BR:
+ activerecord:
+   models:
+     inquilino:
+       one: Inquilino
+       other: Inquilinos
+   attributes:
+     nome: nome

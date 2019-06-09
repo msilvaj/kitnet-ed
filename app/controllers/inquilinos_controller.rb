@@ -11,6 +11,7 @@ class InquilinosController < ApplicationController
   # GET /inquilinos/1
   # GET /inquilinos/1.json
   def show
+    @inquilino = Inquilino.find(params[:id])
   end
 
   # GET /inquilinos/new
