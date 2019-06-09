@@ -4,7 +4,8 @@ class InquilinosController < ApplicationController
   # GET /inquilinos
   # GET /inquilinos.json
   def index
-    @inquilinos = Inquilino.all
+    @inquilinos = Inquilino.order(:dataVencimento)
+
   end
 
   # GET /inquilinos/1
