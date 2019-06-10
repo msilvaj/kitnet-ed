@@ -12,6 +12,10 @@ gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '3.3.7'
+gem 'adminlte2-rails'
+gem 'font-awesome-rails'
+gem 'bootstrap-datepicker-rails'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 #i18n
 gem 'rails-i18n', '~> 5.1'

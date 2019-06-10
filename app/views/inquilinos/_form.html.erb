@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<div class="container-fluid">
+  <div class="container-fluid" ">
     <%= form_for(@inquilino) do |f| %>
       <%= f.label :nome %>
       <%= f.text_field :nome %>
@@ -21,9 +21,9 @@
       <%= f.date_select :dataVencimento %>
       <%= f.label :pago %>
       <%= f.check_box :pago %>
-      <div class="actions">
-        <%= f.submit %>
-      </div>
-    <% end %>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
     </div>
   </div>

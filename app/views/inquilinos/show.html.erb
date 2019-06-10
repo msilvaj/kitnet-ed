@@ -36,19 +36,37 @@
 </p>
 
 <p>
-  <strong>Datafim:</strong>
+  <strong>Data de fim do aluguel:</strong>
   <%= @inquilino.dataFim %>
 </p>
 
 <p>
-  <strong>Datavencimento:</strong>
-  <%= @inquilino.dataVencimento %>
+  <strong>Dia do vencimento:</strong>
+  Dia <%= @inquilino.dataVencimento.day %>
 </p>
 
 <p>
-  <strong>Pago:</strong>
-  <%= @inquilino.pago %>
-</p>
+  <strong>Status do pagamento:</strong>
+  <% if @inquilino.pago.eql? true %>
+    <button class='col-2 btn btn-success id="pago"'>Pagou</button>
+  <% else %>
+    <button class='col-2 btn btn-danger'>Devendo</button>
+  <% end %>
 
-<%= link_to 'Edit', edit_inquilino_path(@inquilino) %> |
-<%= link_to 'Back', inquilinos_path %>
+</p>
+<p>
+  <strong>Pagamentos feitos:</strong>
+  <br>
+  <% @inquilino.pagamentos.all.each do |x| %>
+  Dia: <%= x.mes.split('-').reverse %>
+  <br>
+  <% end %>
+</p
+
+
+
+<div>
+<button class='w3-button w3-teal' autofocus"><%= link_to 'Voltar', inquilinos_path, {:style => 'color: #FFFFFF'} %></button>
+<button class="w3-button w3-khaki" autofocus ><%= link_to 'Editar', edit_inquilino_path(@inquilino) %></button>
+<button class='w3-button w3-orange' autofocus><%= link_to 'Destroy', inquilino_path(@inquilino), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+</div>
