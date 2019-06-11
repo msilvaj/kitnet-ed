@@ -19,6 +19,8 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'simple_form'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
+gem 'devise'
+gem 'cancancan'
 #i18n
 gem 'rails-i18n', '~> 5.1'
 
