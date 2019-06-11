@@ -2,6 +2,7 @@
   <div class="col-md-6 col-md-offset-3">
     <h1>Criar Inquilino</h1>
       <%= render 'form', inquilino: @inquilino %>
-      <%= link_to 'Back', inquilinos_path %>
+      <%= button_to "Voltar", inquilinos_path, :class => "btn btn-success", :method => :get %>
+
   </div>
 </div>

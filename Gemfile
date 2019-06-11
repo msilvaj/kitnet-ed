@@ -16,6 +16,7 @@ gem 'adminlte2-rails'
 gem 'font_awesome5_rails'
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem 'simple_form'
 
 #i18n
 gem 'rails-i18n', '~> 5.1'

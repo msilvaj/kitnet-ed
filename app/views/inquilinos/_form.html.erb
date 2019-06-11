@@ -1,28 +1,19 @@
 <div class="container-fluid">
   <div class="container-fluid" ">
-    <%= form_for(@inquilino) do |f| %>
-      <%= f.label :nome %>
-      <%= f.text_field :nome %>
-      <%= f.label :cpf %>
-      <%= f.text_field :cpf %>
-      <%= f.label :rg %>
-      <%= f.text_field :rg %>
-      <%= f.label :telefone %>
-      <%= f.text_field :telefone %>
-      <%= f.label :ap %>
-      <%= f.text_field :ap %>
-      <%= f.label :codigoEletrobras %>
-      <%= f.text_field :codigoEletrobras %>
-      <%= f.label :dataInicio %>
-      <%= f.date_select :dataInicio %>
-      <%= f.label :dataFim %>
-      <%= f.date_select :dataFim %>
-      <%= f.label :dataVencimento %>
-      <%= f.date_select :dataVencimento %>
-      <%= f.label :pago %>
-      <%= f.check_box :pago %>
+    <%= simple_form_for(@inquilino) do |f| %>
+    <%= f.error_notification %>
+      <%= f.input :nome %>
+      <%= f.input :cpf %>
+      <%= f.input :rg %>
+      <%= f.input :telefone %>
+      <%= f.input :ap %>
+      <%= f.input :codigoEletrobras %>
+      <%= f.input :dataInicio %>
+      <%= f.input :dataFim %>
+      <%= f.input :dataVencimento %>
+      <%= f.input :pago %>
         <div class="actions">
-          <%= f.submit %>
+          <%= f.button :submit, class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
