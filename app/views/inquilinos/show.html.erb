@@ -1,17 +1,12 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @inquilino.nome %></h1>
 
 <p>
-  <strong>Nome:</strong>
-  <%= @inquilino.nome %>
-</p>
-
-<p>
-  <strong>Cpf:</strong>
+  <strong>CPF:</strong>
   <%= @inquilino.cpf %>
 </p>
 
 <p>
-  <strong>Rg:</strong>
+  <strong>RG:</strong>
   <%= @inquilino.rg %>
 </p>
 
@@ -21,22 +16,22 @@
 </p>
 
 <p>
-  <strong>Ap:</strong>
+  <strong>Kitnet:</strong>
   <%= @inquilino.ap %>
 </p>
 
 <p>
-  <strong>Codigoeletrobras:</strong>
+  <strong>Codigo da eletrobras:</strong>
   <%= @inquilino.codigoEletrobras %>
 </p>
 
 <p>
-  <strong>Datainicio:</strong>
+  <strong>Data de Início:</strong>
   <%= @inquilino.dataInicio %>
 </p>
 
 <p>
-  <strong>Data de fim do aluguel:</strong>
+  <strong>Data de término do contrato:</strong>
   <%= @inquilino.dataFim %>
 </p>
 
@@ -61,12 +56,10 @@
   Dia: <%= x.mes.split('-').reverse %>
   <br>
   <% end %>
-</p
+</p>
 
-
-
-<div>
-<button class='w3-button w3-teal' autofocus"><%= link_to 'Voltar', inquilinos_path, {:style => 'color: #FFFFFF'} %></button>
-<button class="w3-button w3-khaki" autofocus ><%= link_to 'Editar', edit_inquilino_path(@inquilino) %></button>
-<button class='w3-button w3-orange' autofocus><%= link_to 'Destroy', inquilino_path(@inquilino), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+<div class="row">
+  <%= button_to "Voltar", inquilinos_path, :class => "btn btn-success", :method => :get %>
+  <%= button_to "Editar", edit_inquilino_path(@inquilino), :class => "btn btn-info", :method => :get %>
+  <%= button_to "Excluir", inquilino_path(@inquilino), :class => "btn btn-danger",  method: :delete, data: { confirm: 'Você tem certeza?' } %>
 </div>
