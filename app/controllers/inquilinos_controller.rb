@@ -7,17 +7,17 @@ class InquilinosController < ApplicationController
   # GET /inquilinos.json
   def index
     @inquilinos = Inquilino.order(:dataVencimento)
-
+    calcula_pagamento(@inquilinos)
   end
 
 
-  def calcula_pagamento(x)
-
-    if @x.dataVencimento.day.eql? Date.today.day
-      @x.pago = false #defino como pago
-      #crio um novo pagamento pro inquilino
-      @pag = Pagamento.create(mes: @x.dataVencimento.to_s, pago: @x.pago, inquilino_id: @x.id)
-
+  def calcula_pagamento(inquilinos)
+    @inquilinos.each do |x|
+      if x.dataVencimento.day.to_i.eql? Date.today.day.to_i + 1
+        x.pago = false #defino como pago
+        #crio um novo pagamento pro inquilino
+        @pag = Pagamento.create(mes: x.dataVencimento.to_s, pago: x.pago, inquilino_id: x.id)
+      end
     end
   end
 
@@ -31,8 +31,6 @@ class InquilinosController < ApplicationController
   # GET /inquilinos/new
   def new
     @inquilino = Inquilino.new
-    @pag = Pagamento.create(mes: @inquilino.dataVencimento.to_s, pago: @inquilino.pago, inquilino_id: @inquilino.id)
-
   end
 
   # GET /inquilinos/1/edit

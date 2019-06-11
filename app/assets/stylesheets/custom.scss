@@ -66,15 +66,30 @@ p {
 }
 
 #voltar {
-  display: inline;
+color: black
 }
 
 #editar{
-display: inline;
+color: black;
 }
 
 #excluir{
-  display: inline;
+color: black;
+}
+
+.dotred{
+  height: 25px;
+  width: 25px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dotgreen {
+  height: 25px;
+  width: 25px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 footer {

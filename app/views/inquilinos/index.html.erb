@@ -1,4 +1,5 @@
 
+<br>
 <h1>Inquilinos</h1>
 <div class="container-fluid stripped-table">
 <table class="table">
@@ -14,12 +15,12 @@
   <tbody>
     <% @inquilinos.each do |inquilino| %>
       <tr>
-        <td class='col-4'><%= link_to inquilino.nome, inquilino %></td>
+        <td class='col-4'><%= link_to inquilino.nome.split(' ').first, inquilino %></td>
         <td class='col-2'><%= inquilino.ap %></td>
         <% if inquilino.pago.eql? true %>
-        <td class='col-2 btn btn-success disabled'>Pagou</td>
+        <td class='dotgreen'></td>
         <% else %>
-        <td class='col-2 btn btn-danger disabled'>Devendo</td>
+        <td class='dotred'></td>
         <% end %>
         <td class='col-2'><%= inquilino.dataVencimento.day %></td>
       </tr>
