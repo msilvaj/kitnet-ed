@@ -7,7 +7,7 @@ class InquilinosController < ApplicationController
   # GET /inquilinos.json
   def index
     @inquilinos = Inquilino.order(:dataVencimento)
-    
+
   end
 
 
@@ -46,7 +46,7 @@ class InquilinosController < ApplicationController
     respond_to do |format|
       if @inquilino.save
         @pag = Pagamento.create(mes: @inquilino.dataVencimento.to_s, pago: @inquilino.pago, inquilino_id: @inquilino.id)
-        format.html {redirect_to @inquilino, notice: 'Inquilino was successfully created.'}
+        format.html {redirect_to @inquilino, notice: 'Inquilino criado com sucesso!.'}
         format.json {render :show, status: :created, location: @inquilino}
       else
         format.html {render :new}
@@ -61,7 +61,7 @@ class InquilinosController < ApplicationController
     respond_to do |format|
       if @inquilino.update(inquilino_params)
         @pag = Pagamento.create(mes: @inquilino.dataVencimento.to_s, pago: @inquilino.pago, inquilino_id: @inquilino.id)
-        format.html {redirect_to @inquilino, notice: 'Inquilino was successfully updated.'}
+        format.html {redirect_to @inquilino, notice: 'Inquilino atualizado com sucesso!.'}
         format.json {render :show, status: :ok, location: @inquilino}
       else
         format.html {render :edit}
@@ -76,7 +76,7 @@ class InquilinosController < ApplicationController
     Pagamento.destroy(@inquilino.pagamento_ids)
     @inquilino.destroy
     respond_to do |format|
-      format.html {redirect_to inquilinos_url, notice: 'Inquilino was successfully destroyed.'}
+      format.html {redirect_to inquilinos_url, notice: 'Inquilino excluido com sucesso.'}
       format.json {head :no_content}
     end
   end
@@ -92,4 +92,27 @@ class InquilinosController < ApplicationController
   def inquilino_params
     params.require(:inquilino).permit(:nome, :cpf, :rg, :telefone, :ap, :codigoEletrobras, :dataInicio, :dataFim, :dataVencimento, :pago, :pagamentos)
   end
+
+  def check_cpf(cpf=nil)
+    return false if cpf.nil?
+
+    nulos = %w{12345678909 11111111111 22222222222 33333333333 44444444444 55555555555 66666666666 77777777777 88888888888 99999999999 00000000000 12345678909}
+    valor = cpf.scan /[0-9]/
+    if valor.length == 11
+      unless nulos.member?(valor.join)
+        valor = valor.collect{|x| x.to_i}
+        soma = 10*valor[0]+9*valor[1]+8*valor[2]+7*valor[3]+6*valor[4]+5*valor[5]+4*valor[6]+3*valor[7]+2*valor[8]
+        soma = soma - (11 * (soma/11))
+        resultado1 = (soma == 0 or soma == 1) ? 0 : 11 - soma
+        if resultado1 == valor[9]
+          soma = valor[0]*11+valor[1]*10+valor[2]*9+valor[3]*8+valor[4]*7+valor[5]*6+valor[6]*5+valor[7]*4+valor[8]*3+valor[9]*2
+          soma = soma - (11 * (soma/11))
+          resultado2 = (soma == 0 or soma == 1) ? 0 : 11 - soma
+          return true if resultado2 == valor[10] # CPF válido
+        end
+      end
+    end
+    return false # CPF inválido
+  end
+
 end
