@@ -1,6 +1,7 @@
-<h1>Editing Inquilino</h1>
+<br>
+<h1>Editando <%= @inquilino.nome %></h1>
 
 <%= render 'form', inquilino: @inquilino %>
 
-<%= link_to 'Show', @inquilino %> |
-<%= link_to 'Back', inquilinos_path %>
+<%= button_to "Mostrar", @inquilino, :class => "btn btn-success", :method => :get %>
+<%= button_to "Voltar", inquilinos_path, :class => "btn btn-success", :method => :get %>

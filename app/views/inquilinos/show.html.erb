@@ -1,6 +1,6 @@
 <br>
 <h1><%= @inquilino.nome %></h1>
-
+<div>
 <p>
   <strong>CPF:</strong>
   <%= @inquilino.cpf %>
@@ -44,9 +44,9 @@
 <p>
   <strong>Status do pagamento:</strong>
   <% if @inquilino.pago.eql? true %>
-    <button class='col-2 btn btn-success id="pago"'>Pagou</button>
+    <button class='col-2 btn btn-success disabled'>Pagou</button>
   <% else %>
-    <button class='col-2 btn btn-danger'>Devendo</button>
+    <button class='col-2 btn btn-danger disabled'>Devendo</button>
   <% end %>
 
 </p>
@@ -59,8 +59,10 @@
   <% end %>
 </p>
 
-<div class="row">
-  <%= button_to "Voltar", inquilinos_path, :class => "btn btn-success", :method => :get %>
-  <%= button_to "Editar", edit_inquilino_path(@inquilino), :class => "btn btn-info", :method => :get %>
-  <%= button_to "Excluir", inquilino_path(@inquilino), :class => "btn btn-danger",  method: :delete, data: { confirm: 'Você tem certeza?' } %>
+<div class="form-inline">
+
+  <%= link_to "Voltar", inquilinos_path, :class => "btn btn-success", :id => 'voltar', :method => :get %>
+  <%= link_to "Editar", edit_inquilino_path(@inquilino), :class => "btn btn-info", :id => 'editar',:method => :get %>
+  <%= link_to "Excluir", inquilino_path(@inquilino), :class => "btn btn-danger", :id => 'excluir', method: :delete, data: { confirm: 'Você tem certeza?' } %>
+</div>
 </div>
