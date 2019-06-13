@@ -60,11 +60,7 @@ class InquilinosController < ApplicationController
   def update
     respond_to do |format|
       if @inquilino.update(inquilino_params)
-        if @inquilino.pagamentos.size < 1
-          @pag = Pagamento.create(mes: @inquilino.dataVencimento.to_s, pago: @inquilino.pago, inquilino_id: @inquilino.id)
-        elsif @inquilino.pagamentos.last.mes.split('-').reverse.second.to_i.eql? Date.today.month.to_i
-
-        else
+        if @inquilino.pago.eql? true
           @pag = Pagamento.create(mes: @inquilino.dataVencimento.to_s, pago: @inquilino.pago, inquilino_id: @inquilino.id)
         end
         format.html {redirect_to @inquilino, notice: 'Inquilino atualizado com sucesso!.'}
