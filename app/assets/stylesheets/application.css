@@ -13,38 +13,3 @@
  *= require_tree .
  *= require_self
  */
- #xxx{
-   color: blue;
-   position:relative;
-   size: auto;
-
- }
- #tesste {
-
-   text-decoration-color: green;
-   background-image: url('predio.jpg');
-   background-repeat: no-repeat;
-   background-position: center;
-   background-size: auto;
-   border: 1px solid gray;
- }
-
-
-
-.login-wrap{
-	width:100%;
-	margin:auto;
-	max-width:500px;
-	min-height:500px;
-	position:relative;
-  border: 1px solid gray
-	box-shadow: 0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
-}
-.login-html{
-
-	width:70%;
-	height:70%;
-	position:center;
-	padding:90px 70px 50px 70px;
-	background:rgba(0, 0, 0, 0.8);
-}
