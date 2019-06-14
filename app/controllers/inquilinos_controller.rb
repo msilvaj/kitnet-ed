@@ -6,7 +6,7 @@ class InquilinosController < ApplicationController
   # GET /inquilinos
   # GET /inquilinos.json
   def index
-    @inquilinos = Inquilino.order(:dataVencimento)
+    @inquilinos = Inquilino.order(:ap)
     calcula_pagamento(@inquilinos)
   end
 
