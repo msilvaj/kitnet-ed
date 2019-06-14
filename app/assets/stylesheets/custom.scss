@@ -65,6 +65,15 @@ p {
   text-decoration: none;
 }
 
+.lolo {
+  width:10px;
+  height:20px;
+}
+
+#dologo{
+  background-color: orange;
+}
+
 #voltar {
 color: black
 }
@@ -121,6 +130,9 @@ footer ul li {
   margin-left: 15px;
 }
 
+#colorir{
+  color: black;
+}
 #xxx{
   color: blue;
   position:relative;
@@ -130,9 +142,9 @@ footer ul li {
 #tesste {
 
   text-decoration-color: green;
-  background-image: url('https://raw.githubusercontent.com/msilvaj/pages2/master/predio.jpg');
+  background-image: url('predio.jpg');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: relative;
   background-size: 100% 100%;
   border: 1px solid gray;
 }

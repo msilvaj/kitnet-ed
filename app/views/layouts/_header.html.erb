@@ -1,9 +1,10 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container-fluid">
-    <%= link_to image_tag("logo.png", alt: "Ed Paraiba Kitnets"), 'http://www.edparaiba.com.br/', id: "logo" %>
+  <div class="container-fluid" id="dologo">
+    <%= link_to image_tag("logo.png", alt: "Ed Paraiba Kitnets", width: "140px", height: "80px" ), 'http://www.edparaiba.com.br/', id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Inquilinos", inquilinos_path %></li>
+
+        <li><%= link_to "Inquilinos", inquilinos_path, :id => "colorir" %></li>
 
         <%= render 'users/login_items' %>
       </ul>
