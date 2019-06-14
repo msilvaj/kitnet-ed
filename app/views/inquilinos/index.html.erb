@@ -5,10 +5,11 @@
 <table class="table">
   <thead >
     <tr class="d-flex" style: background-color:black>
-      <th class='col-4'>Nome </th>
-      <th class='col-xs-6 col-sm-4'>Ap</th>
+      <th class='col-2'>Nome </th>
+      <th class='col-2'>Código Único </th>
+      <th class='col-2'>Ap</th>
       <th class='col-2'>Pago</th>
-      <th class='col-3'>Dia do vencimento</th>
+      <th class='col-2'>Dia do vencimento</th>
     </tr>
   </thead>
 
@@ -16,6 +17,7 @@
     <% @inquilinos.each do |inquilino| %>
       <tr>
         <td class='col-4'><%= link_to inquilino.nome.split(' ').first, inquilino %></td>
+        <td class='col-4'><%= inquilino.codigoEletrobras %></td>
         <td class='col-2'><%= inquilino.ap %></td>
         <% if inquilino.pago.eql? true %>
         <td class='dotgreen'></td>
