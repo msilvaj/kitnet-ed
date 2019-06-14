@@ -130,10 +130,10 @@ footer ul li {
 #tesste {
 
   text-decoration-color: green;
-  background-image: url('predio.jpg');
+  background-image: url('./predio.jpg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto;
+  background-size: 100% 100%;
   border: 1px solid gray;
 }
 
@@ -142,10 +142,10 @@ footer ul li {
 .login-wrap{
  width:100%;
  margin:auto;
- max-width:500px;
- min-height:500px;
+ max-width:300px;
+ min-height:300px;
  position:relative;
- border: 1px solid gray
+ border: 1px solid gray;
  box-shadow: 0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
 .login-html{

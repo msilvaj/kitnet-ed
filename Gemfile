@@ -10,8 +10,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass', '3.3.7'
+gem 'sass-rails'
+gem 'bootstrap-sass'
 gem 'adminlte2-rails'
 gem 'font_awesome5_rails'
 gem 'bootstrap-datepicker-rails'
@@ -21,6 +21,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'devise'
 gem 'cancancan'
+gem 'sass'
 #i18n
 gem 'rails-i18n', '~> 5.1'
 
