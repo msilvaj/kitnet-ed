@@ -16,15 +16,14 @@ class InquilinosController < ApplicationController
 
     @inquilinos = Inquilino.all
     @inquilinos.each do |x|
-
-      if (x.dataVencimento) >= (x.dataVencimento + 29)
-      #if x.mensalidades.all.exists?(pago: false)
+      
+      if x.mensalidades.all.limit(2).order(:mes).exists?(pago: false)
         x.pago = false
         x.save!
       else
         x.pago = true
         x.save!
-      end 
+      end
     end
   end
 
