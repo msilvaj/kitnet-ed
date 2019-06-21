@@ -17,7 +17,7 @@ class InquilinosController < ApplicationController
     @inquilinos = Inquilino.all
     @inquilinos.each do |x|
 
-      if x.mensalidades.all.limit(1).order(:mes).exists?(pago: false)
+      if x.mensalidades.first.pago.eql? false
         x.pago = false
         x.save!
       else
