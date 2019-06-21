@@ -13,16 +13,18 @@ class InquilinosController < ApplicationController
 
 
   def calcula_pagamento()
+
     @inquilinos = Inquilino.all
     @inquilinos.each do |x|
-      if (x.dataVencimento) >= (x.dataVencimento + 29)
-      #if x.mensalidades.all.exists?(pago: false)
-        x.pago = false
-        x.save!
-      else
-        x.pago = true
-        x.save!
+
+      mesa = x.dataVencimento
+      cont = 0
+      12.times do
+        cont += 1
+        mes =  mesa + cont.month
+        mensalidades = Mensalidade.create(inquilino_id: @x.id, mes: @mes, pago: false)
       end
+      x.save!
     end
   end
 
