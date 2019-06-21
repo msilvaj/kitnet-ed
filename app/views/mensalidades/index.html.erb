@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Mensalidades</h1>
-
-<table>
+<h1>Relatório</h1>
+<div class="container-fluid stripped-table">
+<table class="table">
   <thead>
     <tr>
       <th>Inquilino</th>
@@ -15,17 +15,18 @@
   <tbody>
     <% @mensalidades.each do |mensalidade| %>
       <tr>
-        <td><%= mensalidade.inquilino.nome %></td>
-        <td><%= mensalidade.mes.strftime("%m/%d/%Y") %></td>
-        <td><%= mensalidade.pago %></td>
-        <td><%= link_to 'Show', mensalidade %></td>
-        <td><%= link_to 'Edit', edit_mensalidade_path(mensalidade) %></td>
-        <td><%= link_to 'Destroy', mensalidade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class='col-4'><%= mensalidade.inquilino.nome %></td>
+        <td class='col-4'><%= mensalidade.mes.strftime("%d/%m/%Y") %></td>
+
+        <% if mensalidade.pago.eql? true %>
+        <td >Pagou</td>
+        <% else %>
+        <td ">Não Pagou</td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Mensalidade', new_mensalidade_path %>
