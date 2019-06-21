@@ -14,17 +14,6 @@ class InquilinosController < ApplicationController
 
   def calcula_pagamento()
 
-    @inquilinos = Inquilino.all
-
-    @inquilinos.each do |x|
-      if (Date.today - x.dataVencimento).to_i > 29
-        x.pago = false #defino como pago
-        x.save!
-        #crio um novo pagamento pro inquilino
-        @pag = Pagamento.create(mes: x.dataVencimento.to_s, pago: x.pago, inquilino_id: x.id)
-
-      end
-    end
   end
 
 
@@ -49,8 +38,15 @@ class InquilinosController < ApplicationController
     @inquilino = Inquilino.new(inquilino_params)
     respond_to do |format|
       if @inquilino.save
-        if @inquilino.pago.eql? true
-          @pag = Pagamento.create(mes: @inquilino.dataVencimento.to_s, pago: @inquilino.pago, inquilino_id: @inquilino.id)
+        #@pagamento = Pagamento.create(mes: @inquilino.dataVencimento.to_s, pago: @inquilino.pago, inquilino_id: @inquilino.id)
+        #@mensalidade = Mensalidade.create(inquilino_id: @inquilino.id, pagamento_id: @pagamento.id)
+        #@mensalidade = Mensalidade.create(pago: @inquilino.pago, inquilino_id: @inquilino.id)
+        @mesa = @inquilino.dataVencimento
+        @cont = 0
+        12.times do
+          @cont += 1
+          @mes =  @mesa + @cont.month
+          @mensalidades = Mensalidade.create(inquilino_id: @inquilino.id, mes: @mes, pago: false)
         end
         format.html {redirect_to @inquilino, notice: 'Inquilino criado com sucesso!.'}
         format.json {render :show, status: :created, location: @inquilino}
@@ -98,7 +94,7 @@ class InquilinosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def inquilino_params
-    params.require(:inquilino).permit(:nome, :cpf, :rg, :telefone, :ap, :codigoEletrobras, :dataInicio, :dataFim, :dataVencimento, :pago, :pagamentos)
+    params.require(:inquilino).permit(:nome, :cpf, :rg, :telefone, :ap, :codigoEletrobras, :dataInicio, :dataFim, :dataVencimento, :pago, :pagamentos, :mensalidades)
   end
 
   def check_cpf(cpf=nil)

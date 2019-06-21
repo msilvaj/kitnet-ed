@@ -59,6 +59,15 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Mensalidades:</strong>
+  <% @inquilino.mensalidades.all.each do |x| %>
+  Dia: <%= x.mes%>
+  <br>
+  <% end %>
+  <br>
+
+</p>
 <div class="form-inline">
 
   <%= link_to "Voltar", inquilinos_path, :class => "btn btn-success", :id => 'voltar', :method => :get %>

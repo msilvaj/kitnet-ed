@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Inquilino:</strong>
+  <%= @mensalidade.inquilino %>
+</p>
+
+<p>
+  <strong>Mes:</strong>
+  <%= @mensalidade.mes %>
+</p>
+
+<p>
+  <strong>Pago:</strong>
+  <%= @mensalidade.pago %>
+</p>
+
+<%= link_to 'Edit', edit_mensalidade_path(@mensalidade) %> |
+<%= link_to 'Back', mensalidades_path %>

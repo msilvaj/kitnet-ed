@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inquilino: one
+  mes: 2019-06-21
+  pago: false
+
+two:
+  inquilino: two
+  mes: 2019-06-21
+  pago: false

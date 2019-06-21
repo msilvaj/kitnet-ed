@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_202126) do
+ActiveRecord::Schema.define(version: 2019_06_21_140534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2019_06_11_202126) do
     t.boolean "pago"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "mensalidades", force: :cascade do |t|
+    t.bigint "inquilino_id"
+    t.date "mes"
+    t.boolean "pago"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["inquilino_id"], name: "index_mensalidades_on_inquilino_id"
   end
 
   create_table "pagamentos", force: :cascade do |t|
@@ -53,5 +62,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_202126) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "mensalidades", "inquilinos"
   add_foreign_key "pagamentos", "inquilinos"
 end
