@@ -1,15 +1,7 @@
 <br>
 <h1><%= @inquilino.nome %></h1>
-<div>
-<p>
-  <strong>CPF:</strong>
-  <%= @inquilino.cpf %>
-</p>
 
-<p>
-  <strong>RG:</strong>
-  <%= @inquilino.rg %>
-</p>
+<div class="container-fluid stripped-table">
 
 <p>
   <strong>Telefone:</strong>
@@ -27,22 +19,12 @@
 </p>
 
 <p>
-  <strong>Data de Início:</strong>
-  <%= @inquilino.dataInicio %>
-</p>
-
-<p>
-  <strong>Data de término do contrato:</strong>
-  <%= @inquilino.dataFim %>
-</p>
-
-<p>
   <strong>Dia do vencimento:</strong>
   Dia <%= @inquilino.dataVencimento.day %>
 </p>
 
 <p>
-  <strong>Status do pagamento:</strong>
+  <strong>Status dos pagamentos:</strong>
   <% if @inquilino.pago.eql? true %>
     <button class='col-2 btn btn-success disabled'>Pagou</button>
   <% else %>
@@ -50,24 +32,35 @@
   <% end %>
 
 </p>
-<p>
-  <strong>Pagamentos feitos:</strong>
-  <br>
-  <% @inquilino.pagamentos.all.each do |x| %>
-  Dia: <%= x.mes.split('-').reverse %>
-  <br>
-  <% end %>
-</p>
+</div>
+-----------------
 
-<p>
-  <strong>Mensalidades:</strong>
-  <% @inquilino.mensalidades.all.each do |x| %>
-  Dia: <%= x.mes%>
-  <br>
-  <% end %>
-  <br>
+<br>
+<h1>Mensalidades</h1>
+<div class="container-fluid stripped-table">
+<table class="table">
+  <thead >
+    <tr class="d-flex" style: background-color:black>
+      <th class='col-3'>Data de Vencimento</th>
+      <th class='col-2'>Status </th>
+    </tr>
+  </thead>
 
-</p>
+  <tbody>
+    <% @inquilino.mensalidades.each do |mes| %>
+      <tr>
+        <td class='col-4'><%= link_to mes.mes.strftime("%d/%m/%Y"), mes %></td>
+        <% if mes.pago.eql? true %>
+        <td><%= link_to "", mes, :class => "dotgreen"%></td>
+        <% else %>
+        <td><%= link_to "", mes, :class => "dotred"%></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
 <div class="form-inline">
 
   <%= link_to "Voltar", inquilinos_path, :class => "btn btn-success", :id => 'voltar', :method => :get %>

@@ -15,8 +15,8 @@
   <tbody>
     <% @mensalidades.each do |mensalidade| %>
       <tr>
-        <td><%= mensalidade.inquilino %></td>
-        <td><%= mensalidade.mes %></td>
+        <td><%= mensalidade.inquilino.nome %></td>
+        <td><%= mensalidade.mes.strftime("%m/%d/%Y") %></td>
         <td><%= mensalidade.pago %></td>
         <td><%= link_to 'Show', mensalidade %></td>
         <td><%= link_to 'Edit', edit_mensalidade_path(mensalidade) %></td>

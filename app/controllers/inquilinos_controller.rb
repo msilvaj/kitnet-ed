@@ -13,7 +13,17 @@ class InquilinosController < ApplicationController
 
 
   def calcula_pagamento()
-
+    @inquilinos = Inquilino.all
+    @inquilinos.each do |x|
+      if (x.dataVencimento) >= (x.dataVencimento + 29)
+      #if x.mensalidades.all.exists?(pago: false)
+        x.pago = false
+        x.save!
+      else
+        x.pago = true
+        x.save!
+      end
+    end
   end
 
 
@@ -21,6 +31,9 @@ class InquilinosController < ApplicationController
   # GET /inquilinos/1.json
   def show
     @inquilino = Inquilino.find(params[:id])
+    respond_to do |format|
+      format.html
+    end
   end
 
   # GET /inquilinos/new

@@ -1,19 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Inquilino:</strong>
-  <%= @mensalidade.inquilino %>
-</p>
+<h1>
+  <strong></strong>
+  <%= @mensalidade.inquilino.nome %>
+</h1>
 
 <p>
   <strong>Mes:</strong>
-  <%= @mensalidade.mes %>
+  <%= @mensalidade.mes.strftime("%d/%m/%Y") %>
 </p>
 
 <p>
   <strong>Pago:</strong>
   <%= @mensalidade.pago %>
 </p>
+<%= render 'form', mensalidade: @mensalidade %>
 
-<%= link_to 'Edit', edit_mensalidade_path(@mensalidade) %> |
-<%= link_to 'Back', mensalidades_path %>
+
+<div class="form-inline">
+
+  <%= link_to "Voltar", inquilinos_path, :class => "btn btn-success", :id => 'voltar', :method => :get %>
+  <%= link_to "Editar", edit_mensalidade_path(@mensalidade), :class => "btn btn-info", :id => 'editar',:method => :get %>
+
+
+</div>

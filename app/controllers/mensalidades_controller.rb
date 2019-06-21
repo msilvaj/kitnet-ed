@@ -4,12 +4,13 @@ class MensalidadesController < ApplicationController
   # GET /mensalidades
   # GET /mensalidades.json
   def index
-    @mensalidades = Mensalidade.all
+    @mensalidades = Mensalidade.order(:mes)
   end
 
   # GET /mensalidades/1
   # GET /mensalidades/1.json
   def show
+    @mensalidades = Mensalidade.order(:mes)
   end
 
   # GET /mensalidades/new
