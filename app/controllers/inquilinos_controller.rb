@@ -16,13 +16,12 @@ class InquilinosController < ApplicationController
 
     @inquilinos = Inquilino.all
     @inquilinos.each do |x|
-
-      mesa = x.dataVencimento
-      cont = 0
+      @mesa = x.dataVencimento
+      @cont = 0
       12.times do
-        cont += 1
-        mes =  mesa + cont.month
-        mensalidades = Mensalidade.create(inquilino_id: @x.id, mes: @mes, pago: false)
+        @cont += 1
+        @mes =  @mesa + @cont.month
+        @mensalidades = Mensalidade.create(inquilino_id: x.id, mes: @mes, pago: false)
       end
       x.save!
     end
