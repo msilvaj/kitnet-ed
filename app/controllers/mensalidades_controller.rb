@@ -29,7 +29,7 @@ class MensalidadesController < ApplicationController
 
     respond_to do |format|
       if @mensalidade.save
-        format.html { redirect_to @mensalidade, notice: 'Mensalidade was successfully created.' }
+        format.html { redirect_to @mensalidade, notice: 'Mensalidade criada com sucesso.' }
         format.json { render :show, status: :created, location: @mensalidade }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class MensalidadesController < ApplicationController
   def update
     respond_to do |format|
       if @mensalidade.update(mensalidade_params)
-        format.html { redirect_to @mensalidade, notice: 'Mensalidade was successfully updated.' }
+        format.html { redirect_to @mensalidade, notice: 'Mensalidade atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @mensalidade }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class MensalidadesController < ApplicationController
   def destroy
     @mensalidade.destroy
     respond_to do |format|
-      format.html { redirect_to mensalidades_url, notice: 'Mensalidade was successfully destroyed.' }
+      format.html { redirect_to mensalidades_url, notice: 'Mensalidade excluída com sucesso.' }
       format.json { head :no_content }
     end
   end
