@@ -8,6 +8,8 @@ body {
   padding-top: 60px;
 }
 
+
+
 section {
   overflow: auto;
 }
@@ -105,6 +107,14 @@ color: black;
   display: inline-block;
 }
 
+#botaoInquilinos {
+  background-color: inherit;
+
+}
+
+#botaoInquilinos:hover{
+  color: blue;
+}
 footer {
   margin-top: 45px;
   padding-top: 5px;

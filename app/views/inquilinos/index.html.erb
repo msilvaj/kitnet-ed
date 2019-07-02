@@ -1,4 +1,3 @@
-
 <br>
 <h1>Inquilinos</h1>
 <div class="container-fluid stripped-table">
@@ -16,7 +15,7 @@
   <tbody>
     <% @inquilinos.each do |inquilino| %>
       <tr>
-        <td class='col-4'><%= link_to inquilino.nome.split(' ').first, inquilino %></td>
+        <td><%= link_to inquilino.nome.split(' ').first, inquilino, :class => "btn button", :id => "botaoInquilinos" %></td>
         <td class='col-4'><%= inquilino.codigoEletrobras %></td>
         <td class='col-2'><%= inquilino.ap %></td>
         <% if inquilino.pago.eql? true %>
