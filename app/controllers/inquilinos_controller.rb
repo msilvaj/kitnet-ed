@@ -92,6 +92,8 @@ class InquilinosController < ApplicationController
   # DELETE /inquilinos/1.json
   def destroy
     Pagamento.destroy(@inquilino.pagamento_ids)
+    @inquilino.pagamentos.destroy_all
+    @inquilino.mensalidades.destroy_all
     @inquilino.destroy
     respond_to do |format|
       format.html {redirect_to inquilinos_url, notice: 'Inquilino excluido com sucesso.'}
