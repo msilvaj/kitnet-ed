@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inquilino: one
+  numero: MyString
+  endereco: MyString
+
+two:
+  inquilino: two
+  numero: MyString
+  endereco: MyString

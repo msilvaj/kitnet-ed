@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :whatsapps
   resources :mensalidades
   devise_for :users
   resources :users
