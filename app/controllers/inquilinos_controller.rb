@@ -76,9 +76,7 @@ class InquilinosController < ApplicationController
   def update
     respond_to do |format|
       if @inquilino.update(inquilino_params)
-        if @inquilino.pago.eql? true
-          @pag = Pagamento.create(mes: @inquilino.dataVencimento.to_s, pago: @inquilino.pago, inquilino_id: @inquilino.id)
-        end
+
         format.html {redirect_to @inquilino, notice: 'Inquilino atualizado com sucesso!.'}
         format.json {render :show, status: :ok, location: @inquilino}
       else
