@@ -16,9 +16,7 @@ class InquilinosController < ApplicationController
 
     @inquilinos = Inquilino.all
     @inquilinos.each do |x|
-    @whatsapp = Whatsapp.create(inquilino_id: x.id, numero: " ", endereco: " ")
-
-
+    
       if x.mensalidades.first.pago.eql? false
         x.pago = false
         x.save!
