@@ -28,7 +28,7 @@ class WhatsappsController < ApplicationController
 
     respond_to do |format|
       if @whatsapp.save
-        format.html { redirect_to @whatsapp, notice: 'Whatsapp was successfully created.' }
+        format.html { redirect_to @whatsapp, notice: 'Whatsapp criado com sucesso.' }
         format.json { render :show, status: :created, location: @whatsapp }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class WhatsappsController < ApplicationController
   def update
     respond_to do |format|
       if @whatsapp.update(whatsapp_params)
-        format.html { redirect_to @whatsapp, notice: 'Whatsapp was successfully updated.' }
+        format.html { redirect_to @whatsapp, notice: 'Whatsapp atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @whatsapp }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class WhatsappsController < ApplicationController
   def destroy
     @whatsapp.destroy
     respond_to do |format|
-      format.html { redirect_to whatsapps_url, notice: 'Whatsapp was successfully destroyed.' }
+      format.html { redirect_to whatsapps_url, notice: 'Whatsapp apagado com sucesso.' }
       format.json { head :no_content }
     end
   end

@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Inquilino:</strong>
-  <%= @whatsapp.inquilino %>
-</p>
-
-<p>
   <strong>Numero:</strong>
   <%= @whatsapp.numero %>
 </p>
@@ -15,5 +10,4 @@
   <%= @whatsapp.endereco %>
 </p>
 
-<%= link_to 'Edit', edit_whatsapp_path(@whatsapp) %> |
-<%= link_to 'Back', whatsapps_path %>
+<%= link_to "Voltar", inquilinos_path(), :class => "btn btn-success", :id => 'voltar', :method => :get %>
