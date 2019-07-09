@@ -1,6 +1,6 @@
-<h1>Editing Whatsapp</h1>
+<h1>Editar Whatsapp</h1>
 
 <%= render 'form', whatsapp: @whatsapp %>
+<%= link_to "Voltar", inquilinos_path(), :class => "btn btn-success", :id => 'voltar', :method => :get %>
 
-<%= link_to 'Show', @whatsapp %> |
 <%= link_to 'Back', whatsapps_path %>

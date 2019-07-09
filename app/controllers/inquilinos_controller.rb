@@ -16,6 +16,8 @@ class InquilinosController < ApplicationController
 
     @inquilinos = Inquilino.all
     @inquilinos.each do |x|
+    @whatsapp = Whatsapp.create(inquilino_id: x.id, numero: " ", endereco: " ")
+
 
       if x.mensalidades.first.pago.eql? false
         x.pago = false
@@ -62,6 +64,9 @@ class InquilinosController < ApplicationController
           @mes =  @mesa + @cont.month
           @mensalidades = Mensalidade.create(inquilino_id: @inquilino.id, mes: @mes, pago: false)
         end
+        #
+        @whatsapp = Whatsapp.create(inquilino_id: @inquilino.id, numero: " ", endereco: " ")
+
         format.html {redirect_to @inquilino, notice: 'Inquilino criado com sucesso!.'}
         format.json {render :show, status: :created, location: @inquilino}
       else
