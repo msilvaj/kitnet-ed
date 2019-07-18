@@ -6,17 +6,23 @@ class InquilinosController < ApplicationController
   # GET /inquilinos
   # GET /inquilinos.json
   def index
+    calcula_pagamento()
+    puts  "ooooooooooooooooooooooo"
     @inquilinos = Inquilino.order(:ap)
-    calcula_pagamento(@inquilinos)
   end
 
 
-  def calcula_pagamento(inquilinos)
+  def calcula_pagamento()
+
+    @inquilinos = Inquilino.all
+
     @inquilinos.each do |x|
-      if x.dataVencimento.day.to_i.eql? Date.today.day.to_i + 1
+      if (Date.today - x.dataVencimento).to_i > 29
         x.pago = false #defino como pago
+        x.save!
         #crio um novo pagamento pro inquilino
         @pag = Pagamento.create(mes: x.dataVencimento.to_s, pago: x.pago, inquilino_id: x.id)
+
       end
     end
   end
