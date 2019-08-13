@@ -17,8 +17,9 @@ class InquilinosController < ApplicationController
     @inquilinos = Inquilino.all
     @inquilinos.each do |x|
       #@indice = (x.mensalidades.sort.find_all{ |x| x.pago.eql? true}.size) - 1
-      @me = x.mensalidades.find{|y| y.mes.eql? Date.today}
+      @me = x.mensalidades.find{ |y| y.mes.month.eql? Date.today.month}
       if (!@me.eql? nil)
+
         if(@me.pago.eql? false)
           x.pago = false
           x.save!
@@ -115,7 +116,7 @@ end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def inquilino_params
-    params.require(:inquilino).permit(:nome, :cpf, :rg, :telefone, :ap, :codigoEletrobras, :dataInicio, :dataFim, :dataVencimento, :pago, :pagamentos, :mensalidades)
+    params.require(:inquilino).permit(:nome, :cpf, :rg, :telefone, :ap, :codigoEletrobras, :dataInicio, :dataFim, :dataVencimento, :pago, :pagamentos, :mensalidades, :whatsapp)
   end
 
   def check_cpf(cpf=nil)
