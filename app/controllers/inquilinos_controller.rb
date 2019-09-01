@@ -18,8 +18,6 @@ class InquilinosController < ApplicationController
     @inquilinos.each do |x|
       #@indice = (x.mensalidades.sort.find_all{ |x| x.pago.eql? true}.size) - 1
       @me = x.mensalidades.find{|y| y.mes.eql? Date.today}
-      puts "mes: "
-      puts @me
       if (!@me.eql? nil)
         if(@me.pago.eql? false)
           x.pago = false
@@ -100,6 +98,7 @@ end
     Pagamento.destroy(@inquilino.pagamento_ids)
     @inquilino.pagamentos.destroy_all
     @inquilino.mensalidades.destroy_all
+    @inquilino.whatsapp.destroy
     @inquilino.destroy
     respond_to do |format|
       format.html {redirect_to inquilinos_url, notice: 'Inquilino excluido com sucesso.'}
