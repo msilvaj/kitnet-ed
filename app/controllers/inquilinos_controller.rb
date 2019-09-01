@@ -16,17 +16,22 @@ class InquilinosController < ApplicationController
 
     @inquilinos = Inquilino.all
     @inquilinos.each do |x|
-    
-      if x.mensalidades.first.pago.eql? false
-        x.pago = false
-        x.save!
-      else
-        x.pago = true
-        x.save!
+      #@indice = (x.mensalidades.sort.find_all{ |x| x.pago.eql? true}.size) - 1
+      @me = x.mensalidades.find{|y| y.mes.eql? Date.today}
+      puts "mes: "
+      puts @me
+      if (!@me.eql? nil)
+        if(@me.pago.eql? false)
+          x.pago = false
+          x.save!
+        end
+        if (@me.pago.eql? true)
+          x.pago = true
+          x.save!
+        end
       end
     end
-  end
-
+end
 
   # GET /inquilinos/1
   # GET /inquilinos/1.json
